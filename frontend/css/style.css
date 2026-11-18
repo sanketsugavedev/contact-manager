@@ -1,0 +1,389 @@
+
+/* ========================================
+   1. GLOBAL RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --background: #f5f6fa;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --danger: #dc2626;
+    --radius: 12px;
+}
+
+body {
+    font-family: Inter, Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   2. HEADER
+======================================== */
+
+header {
+    background: #172554;
+    color: white;
+    padding: 28px 8%;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+header h1 {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    color: #c7d2fe;
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+
+/* ========================================
+   3. MAIN LAYOUT
+======================================== */
+
+main {
+    width: 88%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+section {
+    background: var(--surface);
+    padding: 28px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.035);
+}
+
+section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    color: var(--text);
+}
+
+
+/* ========================================
+   4. FORM
+======================================== */
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+input,
+select {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 15px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus,
+select:focus {
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.10);
+}
+
+select {
+    cursor: pointer;
+}
+
+
+/* ========================================
+   5. BUTTONS
+======================================== */
+
+button {
+    padding: 11px 17px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#submitBtn {
+    background: var(--primary);
+    color: white;
+}
+
+#submitBtn:hover:not(:disabled) {
+    background: var(--primary-dark);
+}
+
+#cancelBtn {
+    background: #f1f5f9;
+    color: var(--text);
+}
+
+#cancelBtn:hover {
+    background: #e2e8f0;
+}
+
+.edit-btn {
+    background: #eef2ff;
+    color: #4338ca;
+}
+
+.delete-btn {
+    background: #fef2f2;
+    color: var(--danger);
+}
+
+.view-btn {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.view-btn:hover {
+    filter: brightness(0.95);
+}
+
+
+/* ========================================
+   6. SEARCH AND FILTER TOOLBAR
+======================================== */
+
+.contact-toolbar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.contact-toolbar input {
+    flex: 1;
+}
+
+.contact-toolbar select {
+    width: 190px;
+}
+
+
+/* ========================================
+   7. CONTACT CARDS
+======================================== */
+
+#contactsList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.contact-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 21px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+}
+
+.contact-card h3 {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.contact-card p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+}
+
+.contact-card button {
+    margin-top: 14px;
+    margin-right: 7px;
+}
+
+
+/* ========================================
+   8. MODAL
+======================================== */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-container {
+    background: white;
+    width: 100%;
+    max-width: 570px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    animation: modalOpen 0.2s ease;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 17px;
+    margin-bottom: 24px;
+}
+
+.modal-header h2 {
+    font-size: 21px;
+}
+
+.close-modal {
+    background: transparent;
+    color: var(--muted);
+    font-size: 27px;
+    padding: 0 8px;
+}
+
+.close-modal:hover {
+    color: var(--danger);
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.detail-item span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.detail-item p {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================
+   9. ACCESSIBILITY
+======================================== */
+
+button:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.35);
+    outline-offset: 2px;
+}
+
+
+/* ========================================
+   10. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 750px) {
+    main {
+        width: 92%;
+    }
+
+    #contactsList {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    header {
+        padding: 23px 5%;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    main {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-toolbar {
+        flex-direction: column;
+    }
+
+    .contact-toolbar select {
+        width: 100%;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-container {
+        padding: 21px;
+    }
+}

@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Book</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Contact Book</h1>
+        <p>Manage your contacts easily</p>
+    </header>
+
+    <main>
+
+        <!-- Contact Form -->
+        <section>
+            <h2 id="formTitle">Add New Contact</h2>
+
+            <form id="contactForm">
+
+                <input type="text" id="name"
+                    placeholder="Full Name" required>
+
+                <input type="email" id="email"
+                    placeholder="Email Address" required>
+
+                <input type="tel" id="phone"
+                    placeholder="Phone Number" required>
+
+                <input type="text" id="street"
+                    placeholder="Street">
+
+                <input type="text" id="city"
+                    placeholder="City">
+
+                <input type="text" id="state"
+                    placeholder="State">
+
+                <input type="text" id="pincode"
+                    placeholder="Pincode">
+
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Family">Family</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Business">Business</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <button type="submit" id="submitBtn">
+                    Create Contact
+                </button>
+
+                <button type="button" id="cancelBtn" hidden>
+                    Cancel Edit
+                </button>
+
+            </form>
+        </section>
+
+        <!-- Contact List -->
+        <section>
+            <h2>My Contacts</h2>
+
+            <div class="contact-toolbar">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search by name, email or phone..."
+                >
+
+                <select id="categoryFilter">
+                    <option value="All">All Contacts</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Family">Family</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Business">Business</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div id="contactsList">
+                <!-- Contacts will be displayed here -->
+            </div>
+        </section>
+
+    </main>
+
+    
+    <!-- Contact Details Modal -->
+    <div class="modal-overlay" id="contactModal">
+
+        <div class="modal-container">
+
+            <div class="modal-header">
+                <h2>Contact Details</h2>
+                <button type="button" class="close-modal" id="closeModal">
+                    &times;
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="detail-item">
+                    <span>Name</span>
+                    <p id="detailName">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>Email</span>
+                    <p id="detailEmail">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>Phone</span>
+                    <p id="detailPhone">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>Category</span>
+                    <p id="detailCategory">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>Street</span>
+                    <p id="detailStreet">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>City</span>
+                    <p id="detailCity">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>State</span>
+                    <p id="detailState">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>Pincode</span>
+                    <p id="detailPincode">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>Created At</span>
+                    <p id="detailCreatedAt">-</p>
+                </div>
+
+                <div class="detail-item">
+                    <span>Last Updated</span>
+                    <p id="detailUpdatedAt">-</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
