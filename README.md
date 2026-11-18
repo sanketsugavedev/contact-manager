@@ -31,6 +31,7 @@ A full-stack web application for managing personal and professional contacts. Us
 
 ## Project Structure
 
+```text
 Contact-Book/
 │
 ├── frontend/
@@ -56,27 +57,28 @@ Contact-Book/
     ├── app.js
     ├── server.js
     └── package.json
-
+```
 
 ## Installation & Setup
 
 ### 1. Clone the repository
 
+```bash
 git clone <your-repository-url>
 cd Contact-Book
-
+```
 
 ### 2. Install backend dependencies
 
-
+```bash
 cd backend
 npm install express mongoose dotenv
-
+```
 
 ### 3. Configure environment variables
 
 Create a `.env` file inside the backend directory:
 
-
+```env
 PORT=3000
 MONGO_URI=mongodb://127
